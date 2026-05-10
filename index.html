@@ -1425,6 +1425,13 @@ function showToast(msg){
 window.showToast = showToast;
 
 // Şifresiz - direkt portal aç
+// SW önbelleğini temizle
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.getRegistrations().then(regs=>{
+    regs.forEach(r=>r.unregister());
+  });
+  caches.keys().then(keys=>keys.forEach(k=>caches.delete(k)));
+}
 document.getElementById('loginScreen').classList.add('hidden');
 document.getElementById('portalScreen').classList.remove('hidden');
 
