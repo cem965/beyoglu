@@ -1417,13 +1417,9 @@ function showToast(msg){
 }
 window.showToast = showToast;
 
-// Auth check
-if(localStorage.getItem('beyoglu_auth')==='1'){
-  document.getElementById('loginScreen').classList.add('hidden');
-  document.getElementById('portalScreen').classList.remove('hidden');
-} else {
-  setTimeout(()=>document.getElementById('loginInput')?.focus(),300);
-}
+// Şifresiz - direkt portal aç
+document.getElementById('loginScreen').classList.add('hidden');
+document.getElementById('portalScreen').classList.remove('hidden');
 
 // ════════════════════════════════════════
 // FUAR APP
