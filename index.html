@@ -1440,12 +1440,6 @@ function initFuarApp(){
   if(fuarInited) return;
   fuarInited = true;
   const db = fuarDb;
-  
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot, query, orderBy, serverTimestamp }
-  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL }
-  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDS4iqkq8ZcmWBj4P6gZB6tTfBxyGVzzTs",
@@ -2947,11 +2941,6 @@ window.syncStatus = function() {
 // ── ŞİFRE ──
 const APP_SIFRE = 'beyoglu2026';
 
-    document.getElementById('loginInput').value = '';
-    document.getElementById('loginInput').focus();
-  }
-};
-
 function initApp() {
 
 // ── INIT ──
@@ -2974,11 +2963,9 @@ document.addEventListener('keydown', e => {
 
 } // initApp sonu
 
-// Şifre kontrolü — daha önce giriş yaptıysa direkt aç
 // fuar auth portal tarafından yönetiliyor
 
-
-}
+} // initFuarApp sonu
 
 // ════════════════════════════════════════
 // EKRAN APP  
@@ -2988,20 +2975,6 @@ function initEkranApp(){
   if(ekranInited) return;
   ekranInited = true;
   const db = ekranDb;
-  
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot, serverTimestamp }
-  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-const app = initializeApp({
-  apiKey:"AIzaSyCX1BuLPLsHEDoy32pBLUu8V_TQHJ1vf5g",
-  authDomain:"ekran-kiralama.firebaseapp.com",
-  projectId:"ekran-kiralama",
-  storageBucket:"ekran-kiralama.firebasestorage.app",
-  messagingSenderId:"454573951189",
-  appId:"1:454573951189:web:54c49d7c8ca11ebbdb3a5c"
-});
-const db = getFirestore(app);
 
 const FUARLAR = [
   {id:'f1',  name:"Ekspomed Eurasia – Tıbbi Cihazlar",        startDate:new Date(2026,3,15), endDate:new Date(2026,3,18), venue:"TÜYAP",        vColor:"#f76a8a"},
