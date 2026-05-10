@@ -2940,15 +2940,6 @@ window.syncStatus = function() {
 // ── ŞİFRE ──
 const APP_SIFRE = 'beyoglu2026';
 
-window.checkLogin = function() {
-  const val = document.getElementById('loginInput').value;
-  if (val === APP_SIFRE) {
-    localStorage.setItem('fuarapp_auth', '1');
-    document.getElementById('loginScreen').classList.add('hidden');
-    document.getElementById('loginError').style.display = 'none';
-    initApp();
-  } else {
-    document.getElementById('loginError').style.display = 'block';
     document.getElementById('loginInput').value = '';
     document.getElementById('loginInput').focus();
   }
@@ -2977,12 +2968,7 @@ document.addEventListener('keydown', e => {
 } // initApp sonu
 
 // Şifre kontrolü — daha önce giriş yaptıysa direkt aç
-if (localStorage.getItem('fuarapp_auth') === '1') {
-  document.getElementById('loginScreen').classList.add('hidden');
-  initApp();
-} else {
-  setTimeout(() => document.getElementById('loginInput')?.focus(), 300);
-}
+// fuar auth portal tarafından yönetiliyor
 
 
 }
@@ -3929,15 +3915,6 @@ window.exportPDF=function(){
 window.syncStatus=function(){showToast('☁️ Firebase bağlı · Senkronize');};
 
 // ── ŞİFRE ──
-window.checkLogin=function(){
-  if(document.getElementById('loginInput').value==='beyoglu2026'){
-    localStorage.setItem('ekranapp_auth','1');
-    document.getElementById('loginScreen').classList.add('hidden');
-    document.getElementById('loginError').style.display='none';
-    initApp();
-  }else{document.getElementById('loginError').style.display='block';document.getElementById('loginInput').value='';}
-};
-
 function initApp(){
   onSnapshot(collection(db,'siparisler'),snap=>{STATE.siparisler=snap.docs.map(d=>({id:d.id,...d.data()}));updateDashboard();if(STATE.activePage==='siparisler')renderSiparisler();if(STATE.activePage==='urunler')renderUrunler();if(STATE.activePage==='stok')renderStokTakip();});
   onSnapshot(collection(db,'musteriler'),snap=>{STATE.musteriler=snap.docs.map(d=>({id:d.id,...d.data()}));updateDashboard();if(STATE.activePage==='musteriler')renderMusteriler();});
